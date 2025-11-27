@@ -2,63 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" cont<!DOCTYPE html>
-<html>
-<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="css/flexbox.css">
-<title>WEBPROG SF241 Introduction</title>
-</head>
-<body>
- 
-
-<div class="header">
-  <h1>Responsive Image Gallery</h1>
-  <p>Resize the browser window to see the responsive effect.</p>
-</div>
-
-<!-- Photo Grid -->
-<div class="container"> 
-  <div class="column">
-    <img src="/w3images/wedding.jpg" style="width:100%">
-    <img src="/w3images/rocks.jpg" style="width:100%">
-    <img src="/w3images/falls2.jpg" style="width:100%">
-    <img src="/w3images/paris.jpg" style="width:100%">
-    <img src="/w3images/nature.jpg" style="width:100%">
-    <img src="/w3images/mist.jpg" style="width:100%">
-    <img src="/w3images/paris.jpg" style="width:100%">
-  </div>
-  
-  <div class="column">
-    <img src="/w3images/underwater.jpg" style="width:100%">
-    <img src="/w3images/ocean.jpg" style="width:100%">
-    <img src="/w3images/wedding.jpg" style="width:100%">
-    <img src="/w3images/mountainskies.jpg" style="width:100%">
-    <img src="/w3images/rocks.jpg" style="width:100%">
-    <img src="/w3images/underwater.jpg" style="width:100%">
-  </div> 
-   
-  <div class="column">
-    <img src="/w3images/wedding.jpg" style="width:100%">
-    <img src="/w3images/rocks.jpg" style="width:100%">
-    <img src="/w3images/falls2.jpg" style="width:100%">
-    <img src="/w3images/paris.jpg" style="width:100%">
-    <img src="/w3images/nature.jpg" style="width:100%">
-    <img src="/w3images/mist.jpg" style="width:100%">
-    <img src="/w3images/paris.jpg" style="width:100%">
-  </div>
-  
-  <div class="column">
-    <img src="/w3images/underwater.jpg" style="width:100%">
-    <img src="/w3images/ocean.jpg" style="width:100%">
-    <img src="/w3images/wedding.jpg" style="width:100%">
-    <img src="/w3images/mountainskies.jpg" style="width:100%">
-    <img src="/w3images/rocks.jpg" style="width:100%">
-    <img src="/w3images/underwater.jpg" style="width:100%">
-  </div>
-</div>
-</body>
-</html>ent="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/flexbox.css">
+    
     <title>Personal Profile</title>
 </head>
 <body>
@@ -68,31 +15,66 @@
     <p>Welcome to my personal profile page!</p>
 </header>
 
-<!--#crumbs=
-<div id='breadcrumb'>
-<ul>
-<li><a href='/default.asp'>Home</a></li>
-<li><a href='/css/default.asp'>CSS</a></li>
-<li><a href='/css/css3_flexbox.asp'>CSS Flexbox</a></li>
-<li><a href='/css/css3_flexbox_responsive.asp'>Flex Responsive</a></li>
-<li>Tryit: Responsive image gallery using flexbox</li>
-</ul>
-</div>
--->
-<h1>Personal Profile Web page </h1>
-<p>
- 
-About Me<br>
- - Hello Everyone!<br>
-I love CATS<br>
-Education / Achievements<br>
-Currently taking BSCS-SF in ASIA PACIFIC COLLEGE<br>
-Course: BSCS-SF <br>
-Eperience: Coding Python<br>
-Hobbies: Cooking, Eating, Sleeping<br>
-Goals In Life / Dream<br>
- - Finish this course<br>
+<nav class="navbar">
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#goals">Goals</a>
+    <a href="#gallery">Cat Gallery</a>
+</nav>
 
- Beluga Cat<br>
-<img src="https://www.catster.com/wp-content/uploads/2023/11/Beluga-Cat.webp" alt="Beluga Cat" width="500" height="600">
-</p>
+<div class="container">
+    <aside class="side" id="about">
+        <h2>About Me</h2>
+        <p>Hello Everyone! I love CATS 🐱</p>
+        <img src="https://www.catster.com/wp-content/uploads/beluga-Cat.webp" alt="A Beluga Cat">
+    </aside>
+
+    <main class="main">
+        <section id="education">
+            <h2>Education / Achievements</h2>
+            <p>Currently taking BSCS-SF in Asia Pacific College</p>
+            <p>Experience: Coding Python</p>
+        </section>
+
+        <section id="hobbies">
+            <h2>Hobbies</h2>
+            <p>Cooking, Eating, Sleeping</p>
+        </section>
+
+        <section id="goals">
+            <h2>Goals In Life</h2>
+            <ul>
+                <li>Finish this course</li>
+                <li>Own a Beluga Cat</li>
+            </ul>
+        </section>
+
+        <section id="gallery">
+            <h2>Cat Gallery</h2>
+            <div class="gallery">
+                <img src="https://cdn2.thecatapi.com/images/MjA4Njg4MQ.jpg" alt="Cat Image 1">
+                <img src="https://cdn2.thecatapi.com/images/MTU4MjMyOQ.jpg" alt="Cat Image 2">
+                <img src="https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg" alt="Cat Image 3">
+            </div>
+        </section>
+    </main>
+</div>
+
+<footer>
+    <p>Contact: yourname@example.com | © 2025 Breneth Jian Ananayo</p>
+</footer>
+
+<script>
+    // Smooth scrolling for navigation
+    document.querySelectorAll('.navbar a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }); 
+    }); 
+</script>
+
+</body>
+</html>
