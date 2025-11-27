@@ -16,24 +16,24 @@
 </header>
 
 <!-- Navigation -->
-<div class="navbar">
+<nav class="navbar">
     #aboutAbout</a>
     #educationEducation</a>
     #hobbiesHobbies</a>
     #goalsGoals</a>
     #galleryCat Gallery</a>
-</div>
+</nav>
 
-<!-- Content -->
+<!-- Main Container -->
 <div class="container">
     <!-- Sidebar -->
-    <div class="side" id="about">
+    <aside class="side" id="about">
         <h2>About Me</h2>
        https://www.catster.com/wp-content/uploads/2023/11/Beluga-Cat.webp" alt="Beluga Cat">
-    </div>
+    </aside>
 
-    <!-- Main -->
-    <div class="main">
+    <!-- Main Content -->
+    <main class="main">
         <section id="education">
             <h2>Education / Achievements</h2>
             <p>Currently taking BSCS-SF in Asia Pacific College</p>
@@ -58,11 +58,12 @@
             <h2>Cat Gallery</h2>
             <div class="gallery">
                 https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg
-                <img src="https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg" alt="<img src="https://www.catster.com/wp-content/uploads/2023/11/Belbp
+                <img src="https://cdn2.thecatapi.comY3ODIyMQ.jpg
+                https://www.catster.com/wp-content/uploads/2023/11/Beluga-Cat.webp
                 https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg
             </div>
         </section>
-    </div>
+    </main>
 </div>
 
 <!-- Footer -->
@@ -70,6 +71,17 @@
     <p>Contact: yourname@example.com | © 2025 Breneth Jian Ananayo</p>
 </footer>
 
+<script>
+    // Smooth scrolling for navigation
+    document.querySelectorAll('.navbar a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
