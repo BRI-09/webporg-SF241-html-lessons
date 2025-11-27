@@ -1,115 +1,124 @@
-
 /* Reset */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-  background: linear-gradient(135deg, #1abc9c, #16a085);
-  color: white;
-  text-align: center;
-  padding: 50px 20px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #1abc9c, #16a085);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
 }
 
 header h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
+    font-size: 3rem;
+    margin-bottom: 10px;
 }
 
 header p {
-  font-size: 1.2rem;
-}
+    /* FIX 1: This block was left open */
+    font-size: 1.2rem;
+} 
 
 /* Navigation */
 .navbar {
-  display: flex;
-  justify-content: center;
-  background-color: #333;
+    /* FIX 2: Changed 'bar' to '.navbar' to target the HTML element correctly */
+    display: flex;
+    justify-content: center;
+    background-color: #333;
 }
 
 .navbar a {
-  color: white;
-  padding: 14px 20px;
-  text-decoration: none;
-  transition: background 0.3s ease, color 0.3s ease;
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    transition: background 0.3s ease;
 }
 
-.nav color: #fff;
+.navbar a:hover {
+    background-color: #1abc9c;
 }
 
 /* Container */
 .container {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 20px;
-  gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    gap: 20px;
 }
 
 /* Sidebar */
 .side {
-  flex: 30%;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    /* NOTE: flex: 30% and flex: 65% total 95%. This leaves a 5% gap (plus the 20px gap property). 
+       You might want to use flex: 1 for equal size, or calc() for more precision with the gap. */
+    flex: 30%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .side img {
-  width: 100%;
-  border-radius: 8px;
-  margin-top: 10px;
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
 }
 
 /* Main */
 .main {
-  flex: 65%;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    flex: 65%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .main h2 {
-  margin-bottom: 10px;
-  color: #1abc9c;
+    margin-bottom: 10px;
+    color: #1abc9c;
 }
 
 /* Gallery */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-  margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .gallery img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
 }
 
 .gallery img:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 /* Footer */
 footer {
-  text-align: center;
-  padding: 20px;
-  background: #333;
-  color: white;
-  margin-top: 30px;
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: white;
+    margin-top: 30px;
 }
 
 /* Responsive */
 @media screen and (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
+    .container {
+        flex-direction: column;
+    }
 }

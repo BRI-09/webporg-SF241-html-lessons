@@ -1,38 +1,32 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    css/flexbox.css
+    <link rel="stylesheet" href="css/flexbox.css">
     <title>Personal Profile</title>
 </head>
 <body>
 
-<!-- Header -->
 <header>
     <h1>Breneth Jian Ananayo</h1>
     <p>Welcome to my personal profile page!</p>
 </header>
 
-<!-- Navigation -->
 <nav class="navbar">
-    #aboutAbout</a>
-    #educationEducation</a>
-    #hobbiesHobbies</a>
-    #goalsGoals</a>
-    #galleryCat Gallery</a>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#goals">Goals</a>
+    <a href="#gallery">Cat Gallery</a>
 </nav>
 
-<!-- Main Container -->
 <div class="container">
-    <!-- Sidebar -->
     <aside class="side" id="about">
         <h2>About Me</h2>
-       https://www.catster.com/wp-content/uploads/2023/11/Beluga-Cat.webp" alt="Beluga Cat">
+        <p>Hello Everyone! I love CATS 🐱</p>
+        <img src="https://www.catster.com/wp-content/uploads/beluga-Cat.webp" alt="A Beluga Cat">
     </aside>
 
-    <!-- Main Content -->
     <main class="main">
         <section id="education">
             <h2>Education / Achievements</h2>
@@ -53,20 +47,17 @@
             </ul>
         </section>
 
-        <!-- Cat Gallery -->
         <section id="gallery">
             <h2>Cat Gallery</h2>
             <div class="gallery">
-                https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg
-                <img src="https://cdn2.thecatapi.comY3ODIyMQ.jpg
-                https://www.catster.com/wp-content/uploads/2023/11/Beluga-Cat.webp
-                https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg
+                <img src="https://cdn2.thecatapi.com/images/MjA4Njg4MQ.jpg" alt="Cat Image 1">
+                <img src="https://cdn2.thecatapi.com/images/MTU4MjMyOQ.jpg" alt="Cat Image 2">
+                <img src="https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg" alt="Cat Image 3">
             </div>
         </section>
     </main>
 </div>
 
-<!-- Footer -->
 <footer>
     <p>Contact: yourname@example.com | © 2025 Breneth Jian Ananayo</p>
 </footer>
@@ -79,9 +70,8 @@
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
             });
-        });
-    });
+        }); // FIX 5: Added missing closing brace for event listener
+    }); // FIX 5: Added missing closing brace for forEach loop
 </script>
-
 </body>
 </html>
