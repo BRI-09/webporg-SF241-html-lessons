@@ -1,8 +1,11 @@
-/* General page styling */
+/* css/flexbox.css */
+
+/* Base */
+* { box-sizing: border-box; }
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
+  font-family: Arial, sans-serif;
   background: #f9fafb;
   color: #333;
 }
@@ -23,27 +26,28 @@ p {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* Image styling */
+/* Image */
 img {
   display: block;
   margin: 15px auto;
   border-radius: 12px;
+  max-width: 100%;
+  height: auto; /* keep aspect ratio */
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-/* Flexbox container */
+/* Flexbox */
 .container {
   display: flex;
-  flex-wrap: wrap;         /* allows items to wrap on smaller screens */
-  justify-content: center; /* center items horizontally */
-  gap: 15px;               /* spacing between items */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
   max-width: 900px;
   margin: 0 auto;
 }
 
-/* Flexbox items */
-.container div {
-  flex: 1 1 100px;         /* grow, shrink, base size */
+.container > div {
+  flex: 1 1 120px;
   min-width: 100px;
   max-width: 200px;
   height: 100px;
@@ -51,24 +55,22 @@ img {
   color: #1e3a8a;
   font-weight: bold;
   font-size: 1.2rem;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.container div:hover {
+.container > div:hover {
   transform: scale(1.05);
   background: #60a5fa;
 }
 
-/* Responsive tweaks */
+/* Responsive */
 @media (max-width: 600px) {
-  p {
-    font-size: 0.95rem;
-  }
-  .container div {
+  p { font-size: 0.95rem; }
+  .container > div {
     flex: 1 1 80px;
     height: 80px;
     font-size: 1rem;
