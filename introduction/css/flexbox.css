@@ -1,124 +1,49 @@
-/* Reset */
+
+
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    line-height: 1.6;
+  margin: 0;
+  font-family: Arial;
 }
 
-/* Header */
-header {
-    background: linear-gradient(135deg, #1abc9c, #16a085);
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
+.header {
+  text-align: center;
+  padding: 32px;
 }
 
-header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-header p {
-    /* FIX 1: This block was left open */
-    font-size: 1.2rem;
-} 
-
-/* Navigation */
-.navbar {
-    /* FIX 2: Changed 'bar' to '.navbar' to target the HTML element correctly */
-    display: flex;
-    justify-content: center;
-    background-color: #333;
-}
-
-.navbar a {
-    color: white;
-    padding: 14px 20px;
-    text-decoration: none;
-    transition: background 0.3s ease;
-}
-
-.navbar a:hover {
-    background-color: #1abc9c;
-}
-
-/* Container */
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 20px;
-    gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
 }
 
-/* Sidebar */
-.side {
-    /* NOTE: flex: 30% and flex: 65% total 95%. This leaves a 5% gap (plus the 20px gap property). 
-       You might want to use flex: 1 for equal size, or calc() for more precision with the gap. */
-    flex: 30%;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+/* Create four equal columns that sits next to each other */
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
 }
 
-.side img {
-    width: 100%;
-    border-radius: 8px;
-    margin-top: 10px;
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
 }
 
-/* Main */
-.main {
-    flex: 65%;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
 }
 
-.main h2 {
-    margin-bottom: 10px;
-    color: #1abc9c;
-}
-
-/* Gallery */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.gallery img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.gallery img:hover {
-    transform: scale(1.05);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #333;
-    color: white;
-    margin-top: 30px;
-}
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
 }
