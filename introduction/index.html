@@ -1,11 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="css/flexbox.css">
-    
+
+    <!-- Common styles -->
+    css/style.css
+
+    <!-- Choose ONE layout: Flexbox OR Grid -->
+    <link rel="stylesheet" href="grid.css -->
+
     <title>Personal Profile</title>
 </head>
 <body>
@@ -16,21 +21,17 @@
 </header>
 
 <nav class="navbar">
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#goals">Goals</a>
-    <a href="#gallery">Cat Gallery</a>
+    #aboutAbout</a>
+    #educationEducation</a>
+    #goalsGoals</a>
+    #galleryGallery</a>
 </nav>
 
 <div class="container">
     <aside class="side" id="about">
         <h2>About Me</h2>
         <p>Hello Everyone! I love CATS 🐱</p>
-        <img src="https://www.catster.com/wp-content/uploads/beluga-Cat.webp" alt="A Beluga Cat"width="500" height="600">
-    </aside>
-
-    <main class="main">
-        <section id="education">
+        <img src="https://www.catster.com/wp-content/uploads/beluga-Cat.webp" alt="A Beluga Cat" width="500" height="600n id="education">
             <h2>Education / Achievements</h2>
             <p>Currently taking BSCS-SF in Asia Pacific College</p>
             <p>Experience: Coding Python</p>
@@ -50,11 +51,11 @@
         </section>
 
         <section id="gallery">
-            <h2>Cat Gallery</h2>
+            <h2>Gallery</h2>
             <div class="gallery">
-                <img src="https://animalia-life.club/sweet-animal-thursday-27.html" alt="Cat Image 1">
-                <img src="https://animalia-life.club/sweet-animal-thursday-27.html" alt="Cat Image 2">
-                <img src="https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg" alt="Cat Image 3">
+                https://wallpapers.com/images/hd/ice-cream-pictures-93ucnuf5kr7ghmhg.jpg
+                <ttps://pallensmith.com/wp-content/uploads/CookingDemo.jpg
+                https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg
             </div>
         </section>
     </main>
@@ -70,11 +71,10 @@
         link.addEventListener('click', function(e) {
             e.preventDefault();
             document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+                               behavior: 'smooth'
             });
-        }); 
-    }); 
+        });
+    });
 </script>
 
 </body>
-</html>
