@@ -1,106 +1,86 @@
-/* CSS Custom Properties (Theme) */
+
+/* =========================================
+   rwd.css — Responsive Enhancements
+   Works with your style.css + flexbox.css
+   ========================================= */
+
+/* Design tokens (safe defaults for light theme) */
 :root {
   --brand-1: #1abc9c;
   --brand-2: #16a085;
   --text: #333;
   --bg: #f9f9f9;
-  --card-bg: #fff;
+  --card: #fff;
   --muted: #666;
 
-  /* Fluid type scale based on viewport width */
-  --fs-100: clamp(0.85rem, 0.82rem + 0.2vw, 0.95rem);
+  /* Fluid type scale */
+  --fs-100: clamp(0.9rem, 0.85rem + 0.2vw, 1rem);
   --fs-200: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
   --fs-300: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
   --fs-400: clamp(1.75rem, 1.4rem + 1vw, 2.25rem);
-  --radius: 8px;
-  --shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+  --radius: 10px;
+  --shadow: 0 2px 10px rgba(0,0,0,0.12);
 }
 
-/* Base adjustments */
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: var(--bg);
-  color: var(--text);
-  font-size: var(--fs-200);
-}
+/* Base refinements */
+html { scroll-behavior: smooth; }
+body { font-size: var(--fs-200); background: var(--bg); color: var(--text); }
 
 h1 { font-size: var(--fs-400); }
 h2 { font-size: var(--fs-300); }
-p, li { color: var(--text); }
 
-/* Make images & embeds responsive by default */
+/* Make media responsive by default */
 img, video, iframe {
   max-width: 100%;
   height: auto;
+  display: block;
 }
 
-/* Utility classes */
+/* Container width helpers (optional classes you can add to .container) */
 .container-narrow { max-width: 900px; margin-inline: auto; }
 .container-wide   { max-width: 1200px; margin-inline: auto; }
-.pad-16 { padding: 16px; }
-pad-24 { padding: 24px; }
-.mt-16 { margin-top: 16px; }
-.mt-24 { margin-top: 24px; }
-.grid-gap-20 { gap: 20px; }
-.hide { display: none !important; }
-.visually-hidden { 
-  position: absolute !important; 
-  clip: rect(1px, 1px, 1px, 1px); 
-  clip-path: inset(50%); 
-  height: 1px; width: 1px; 
-  overflow: hidden; white-space: nowrap;
-}
 
-/* Header refinements */
-header {
-  padding: 40px 16px;
-}
-header h1 {
-  letter-spacing: 0.5px;
-}
-header p {
-  color: white;
-  opacity: 0.9;
-  max-width: 60ch;
-  margin: 0 auto;
-}
+/* Header: small polish for readability */
+header { padding: 40px 16px; }
+header h1 { letter-spacing: 0.3px; }
+header p { max-width: 60ch; margin: 8px auto 0; }
 
-/* Nav: allow wrapping on small screens */
+/* Navbar: allow wrapping on small screens, keep visuals from style.css */
 .navbar {
   gap: 4px;
-  flex-wrap: wrap;
-}
-.navbar a {
-  font-size: var(--fs-200);
+  flex-wrap: wrap;   /* works when navbar uses flex (flexbox.css) */
 }
 
-/* Cards: harmonize visual system */
+/* Cards: harmonize radii/shadows */
 .side, .main {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  background-color: var(--card-bg);
+  background: var(--card);
 }
 
-/* Gallery: aspect ratio and object-fit */
+/* Gallery layout (override if needed) */
+.gallery {
+  /* Ensures nice grid on all screens; your flexbox.css already uses grid here */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  margin-top: 12px;
+}
 .gallery img {
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  aspect-ratio: 4 / 3;   /* consistent aspect ratio */
+  object-fit: cover;     /* crop nicely without distortion */
+  border-radius: var(--radius);
+  transition: transform 0.25s ease;
 }
+.gallery img:hover { transform: scale(1.03); }
 
-/* Footer */
-footer {
-  font-size: var(--fs-100);
-}
+/* Footer small type scale */
+footer { font-size: var(--fs-100); }
 
 /* -----------------------------------
-   Breakpoints (Mobile-first approach)
+   Breakpoints (Mobile-first)
    ----------------------------------- */
-
-/* Small phones (default is mobile) */
-/* Nothing required here — base styles apply */
 
 /* ≥ 480px (large phones) */
 @media (min-width: 480px) {
@@ -109,11 +89,8 @@ footer {
 
 /* ≥ 768px (tablets) */
 @media (min-width: 768px) {
-  .container { 
-    margin: 24px; 
-    gap: 24px; 
-  }
-  .navbar a { padding: 12px 18px; }
+  .container { margin: 24px; gap: 24px; }
+  .navbar a { padding: 12px 18px; } /* more tappable area */
 }
 
 /* ≥ 1024px (desktops) */
@@ -127,24 +104,9 @@ footer {
    Accessibility Preferences
    ----------------------------------- */
 
-/* Dark mode: automatic via user preference */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #e6e6e6;
-    --bg: #121212;
-    --card-bg: #1e1e1e;
-    --muted: #b3b3b3;
-    --shadow: 0 2px 10px rgba(0,0,0,0.6);
-  }
-
-  .navbar { background-color: #222; }
-  footer { background-color: #222; }
-  .main h2 { color: var(--brand-1); }
-}
-
-/* Reduced motion */
+/* Reduced motion: respect user preference */
 @media (prefers-reduced-motion: reduce) {
-  * { 
+  * {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
@@ -152,26 +114,16 @@ footer {
   }
 }
 
-/* Print styles */
+/* Print-friendly styles */
 @media print {
   .navbar, footer { display: none !important; }
   header {
-    background: none;
-    color: black;
-    padding: 0;
+    background: none !important;
+    color: black !important;
+    padding: 0 !important;
   }
-  body { color: black; }
   .side, .main {
-    box-shadow: none;
+    box-shadow: none !important;
     border: 1px solid #ccc;
   }
-}
-
-/* -----------------------------------
-   Optional: Container-based tweaks
-   ----------------------------------- */
-/* If you add class="container-wide" to .container it will center and limit width */
-.container.container-wide {
-  width: 100%;
-  max-width: 1200px;
 }
