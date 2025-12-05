@@ -1,0 +1,177 @@
+/* CSS Custom Properties (Theme) */
+:root {
+  --brand-1: #1abc9c;
+  --brand-2: #16a085;
+  --text: #333;
+  --bg: #f9f9f9;
+  --card-bg: #fff;
+  --muted: #666;
+
+  /* Fluid type scale based on viewport width */
+  --fs-100: clamp(0.85rem, 0.82rem + 0.2vw, 0.95rem);
+  --fs-200: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+  --fs-300: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --fs-400: clamp(1.75rem, 1.4rem + 1vw, 2.25rem);
+  --radius: 8px;
+  --shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Base adjustments */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: var(--fs-200);
+}
+
+h1 { font-size: var(--fs-400); }
+h2 { font-size: var(--fs-300); }
+p, li { color: var(--text); }
+
+/* Make images & embeds responsive by default */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Utility classes */
+.container-narrow { max-width: 900px; margin-inline: auto; }
+.container-wide   { max-width: 1200px; margin-inline: auto; }
+.pad-16 { padding: 16px; }
+pad-24 { padding: 24px; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.grid-gap-20 { gap: 20px; }
+.hide { display: none !important; }
+.visually-hidden { 
+  position: absolute !important; 
+  clip: rect(1px, 1px, 1px, 1px); 
+  clip-path: inset(50%); 
+  height: 1px; width: 1px; 
+  overflow: hidden; white-space: nowrap;
+}
+
+/* Header refinements */
+header {
+  padding: 40px 16px;
+}
+header h1 {
+  letter-spacing: 0.5px;
+}
+header p {
+  color: white;
+  opacity: 0.9;
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
+/* Nav: allow wrapping on small screens */
+.navbar {
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.navbar a {
+  font-size: var(--fs-200);
+}
+
+/* Cards: harmonize visual system */
+.side, .main {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background-color: var(--card-bg);
+}
+
+/* Gallery: aspect ratio and object-fit */
+.gallery img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* Footer */
+footer {
+  font-size: var(--fs-100);
+}
+
+/* -----------------------------------
+   Breakpoints (Mobile-first approach)
+   ----------------------------------- */
+
+/* Small phones (default is mobile) */
+/* Nothing required here — base styles apply */
+
+/* ≥ 480px (large phones) */
+@media (min-width: 480px) {
+  header { padding: 56px 20px; }
+}
+
+/* ≥ 768px (tablets) */
+@media (min-width: 768px) {
+  .container { 
+    margin: 24px; 
+    gap: 24px; 
+  }
+  .navbar a { padding: 12px 18px; }
+}
+
+/* ≥ 1024px (desktops) */
+@media (min-width: 1024px) {
+  .container { margin: 32px auto; }
+  header h1 { font-size: clamp(2.25rem, 2rem + 0.8vw, 3rem); }
+  .container-wide { padding-inline: 24px; }
+}
+
+/* -----------------------------------
+   Accessibility Preferences
+   ----------------------------------- */
+
+/* Dark mode: automatic via user preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #e6e6e6;
+    --bg: #121212;
+    --card-bg: #1e1e1e;
+    --muted: #b3b3b3;
+    --shadow: 0 2px 10px rgba(0,0,0,0.6);
+  }
+
+  .navbar { background-color: #222; }
+  footer { background-color: #222; }
+  .main h2 { color: var(--brand-1); }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { 
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .navbar, footer { display: none !important; }
+  header {
+    background: none;
+    color: black;
+    padding: 0;
+  }
+  body { color: black; }
+  .side, .main {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+
+/* -----------------------------------
+   Optional: Container-based tweaks
+   ----------------------------------- */
+/* If you add class="container-wide" to .container it will center and limit width */
+.container.container-wide {
+  width: 100%;
+  max-width: 1200px;
+}
