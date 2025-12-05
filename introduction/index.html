@@ -1,80 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="css/rwd.css">
-    
-    <title>Personal Profile</title>
+<title>WEBPROG SF241 Introduction</title>
+
 </head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body>
+ 
+<h1>Personal Profile Web page </h1>
+<p>
+ 
+About Me<br>
+ - Hello Everyone!<br>
+I love CATS<br>
+Education / Achievements<br>
+Currently taking BSCS-SF in ASIA PACIFIC COLLEGE<br>
+Course: BSCS-SF <br>
+Eperience: Coding Python<br>
+Hobbies: Cooking, Eating, Sleeping<br>
+Goals In Life / Dream<br>
+ - Finish this course<br>
+Beluga Cat<br>
+<img src="https://www.catster.com/wp-content/uploads/2023/11/Beluga-Cat.webp" alt="Beluga Cat" width="500" height="600">
+</p>
+<div class="grid-container">
 
-<header>
-    <h1>Breneth Jian Ananayo</h1>
-    <p>Welcome to my personal profile page!</p>
-</header>
+<div class="header"><h1>Chania</h1></div>
 
-<nav class="navbar">
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#goals">Goals</a>
-    <a href="#gallery">Cat Gallery</a>
-</nav>
-
-<div class="container">
-    <aside class="side" id="about">
-        <h2>About Me</h2>
-        <p>Hello Everyone! I love CATS 🐱</p>
-        <img src="https://uploads.dailydot.com/2018/10/olli-the-polite-cat.jpg?q=65&auto=format&w=1200&ar=2:1&fit=crop" alt="A Beluga Cat">
-    </aside>
-
-    <main class="main">
-        <section id="education">
-            <h2>Education / Achievements</h2>
-            <p>Currently taking BSCS-SF in Asia Pacific College</p>
-            <p>Experience: Coding Python. Now learning HTML AND CSS</p>
-        </section>
-
-        <section id="hobbies">
-            <h2>Hobbies</h2>
-            <p>Cooking, Eating, Sleeping</p>
-        </section>
-
-        <section id="goals">
-            <h2>Goals In Life</h2>
-            <ul>
-                <li>Finish this course</li>
-                <li>To own a cat just like Beluga</li>
-            </ul>
-        </section>
-
-        <section id="gallery">
-            <h2>My Likes Gallery</h2>
-            <div class="gallery">
-                <img src="https://wallpapers.com/images/hd/ice-cream-pictures-93ucnuf5kr7ghmhg.jpg" alt="Favorite Dessert">
-                <img src="https://esmmweighless.com/wp-content/uploads/2019/12/Carolyn-Cooking-Blog.jpg" alt="Cooking as one of my Hobbies">
-                <img src="https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg" alt="Cat">
-            </div>
-        </section>
-    </main>
+<div class="menu">
+  <ul>
+    <li>The Flight</li>
+    <li>The City</li>
+    <li>The Island</li>
+    <li>The Food</li>
+  </ul>
 </div>
 
-<footer>
-    <p>Contact: bpananayo@student.apc.edu.ph | © 2025 Breneth Jian Ananayo</p>
-</footer>
+<div class="content">
+  <h1>The City</h1>
+  <p>Chania is the capital of the Chania region on the island of Crete.</p>
+  <p>The city can be divided in two parts, the old town and the modern city. The old town is situated next to the old harbour and is the matrix around which the whole urban area was developed.</p>
+  <p>Chania lies along the north west coast of the island Crete.</p>
+</div>  
 
-<script>
-    // Smooth scrolling for navigation
-    document.querySelectorAll('.navbar a').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        }); 
-    }); 
-</script>
+<div class="facts">
+  <h2>Facts:</h2>
+  <ul>
+    <li>Chania is a city on the island of Crete</li>
+    <li>Crete is a Greek island in the Mediterranean Sea</li>
+  </ul>
+</div>
 
+<div class="footer"><p>Resize the browser window to see the responsive effect.</p></div>
+  
+</div>
 </body>
 </html>
