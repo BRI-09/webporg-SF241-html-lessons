@@ -1,123 +1,122 @@
-/* Design tokens (safe defaults for light theme) */
-:root {
-  --brand-1: #1abc9c;
-  --brand-2: #16a085;
-  --text: #333;
-  --bg: #f9f9f9;
-  --card: #fff;
-  --muted: #666;
 
-  /* Fluid type scale */
-  --fs-100: clamp(0.9rem, 0.85rem + 0.2vw, 1rem);
-  --fs-200: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
-  --fs-300: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
-  --fs-400: clamp(1.75rem, 1.4rem + 1vw, 2.25rem);
-
-  --radius: 10px;
-  --shadow: 0 2px 10px rgba(0,0,0,0.12);
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Base refinements */
-html { scroll-behavior: smooth; }
-body { font-size: var(--fs-200); background: var(--bg); color: var(--text); }
-
-h1 { font-size: var(--fs-400); }
-h2 { font-size: var(--fs-300); }
-
-/* Make media responsive by default */
-img, video, iframe {
-  max-width: 100%;
-  height: auto;
-  display: block;
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
 }
 
-/* Container width helpers (optional classes you can add to .container) */
-.container-narrow { max-width: 900px; margin-inline: auto; }
-.container-wide   { max-width: 1200px; margin-inline: auto; }
+/* Header */
+header {
+  background: linear-gradient(135deg, #1abc9c, #16a085);
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
 
-/* Header: small polish for readability */
-header { padding: 40px 16px; }
-header h1 { letter-spacing: 0.3px; }
-header p { max-width: 60ch; margin: 8px auto 0; }
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
 
-/* Navbar: allow wrapping on small screens, keep visuals from style.css */
+header p {
+  font-size: 1.2rem;
+}
+
+/* Navigation */
 .navbar {
-  gap: 4px;
-  flex-wrap: wrap;   /* works when navbar uses flex (flexbox.css) */
+  display: flex;
+  justify-content: center;
+  background-color: #333;
 }
 
-/* Cards: harmonize radii/shadows */
-.side, .main {
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  background: var(--card);
+.navbar a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  transition: background 0.3s ease;
 }
 
-/* Gallery layout (override if needed) */
+.navbar a:hover {
+  background-color: #1abc9c;
+}
+
+/* Container */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  gap: 20px;
+}
+
+/* Sidebar */
+.side {
+  flex: 30%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.side img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* Main */
+.main {
+  flex: 65%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.main h2 {
+  margin-bottom: 10px;
+  color: #1abc9c;
+}
+
+/* Gallery */
 .gallery {
-  /* Ensures nice grid on all screens; your flexbox.css already uses grid here */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 14px;
-  margin-top: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
 }
+
 .gallery img {
-  aspect-ratio: 4 / 3;   /* consistent aspect ratio */
-  object-fit: cover;     /* crop nicely without distortion */
-  border-radius: var(--radius);
-  transition: transform 0.25s ease;
-}
-.gallery img:hover { transform: scale(1.03); }
-
-/* Footer small type scale */
-footer { font-size: var(--fs-100); }
-
-/* -----------------------------------
-   Breakpoints (Mobile-first)
-   ----------------------------------- */
-
-/* ≥ 480px (large phones) */
-@media (min-width: 480px) {
-  header { padding: 56px 20px; }
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
-/* ≥ 768px (tablets) */
-@media (min-width: 768px) {
-  .container { margin: 24px; gap: 24px; }
-  .navbar a { padding: 12px 18px; } /* more tappable area */
+.gallery img:hover {
+  transform: scale(1.05);
 }
 
-/* ≥ 1024px (desktops) */
-@media (min-width: 1024px) {
-  .container { margin: 32px auto; }
-  header h1 { font-size: clamp(2.25rem, 2rem + 0.8vw, 3rem); }
-  .container-wide { padding-inline: 24px; }
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #333;
+  color: white;
+  margin-top: 30px;
 }
 
-/* -----------------------------------
-   Accessibility Preferences
-   ----------------------------------- */
-
-/* Reduced motion: respect user preference */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* Print-friendly styles */
-@media print {
-  .navbar, footer { display: none !important; }
-  header {
-    background: none !important;
-    color: black !important;
-    padding: 0 !important;
-  }
-  .side, .main {
-    box-shadow: none !important;
-    border: 1px solid #ccc;
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
   }
 }
