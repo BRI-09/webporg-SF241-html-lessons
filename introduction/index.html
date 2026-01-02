@@ -1,57 +1,80 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>WEBPROG SF241 Introduction</title>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Common styles -->
+    css/style.css
+
+    <!-- Choose ONE layout: Flexbox OR Grid -->
+    <link rel="stylesheet" href="grid.css -->
+
+    <title>Personal Profile</title>
 </head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/rwd.css">
 <body>
 
-<div class="grid-container">
+<header>
+    <h1>Breneth Jian Ananayo</h1>
+    <p>Welcome to my personal profile page!</p>
+</header>
 
-<div class="header"><h1>Personal Profile Web page</h1></div>
+<nav class="navbar">
+    #aboutAbout</a>
+    #educationEducation</a>
+    #goalsGoals</a>
+    #galleryGallery</a>
+</nav>
 
-<div class="menu">
-  <ul>
-    <li>About Me</li>
-    <li>Education / Achievements</li>
-    <li>IT Eperience</li>
-    <li>Hobbies and Interests</li>
-    <li>Goals In Life / Dream</li>
-  </ul>
+<div class="container">
+    <aside class="side" id="about">
+        <h2>About Me</h2>
+        <p>Hello Everyone! I love CATS 🐱</p>
+        <img src="https://www.catster.com/wp-content/uploads/beluga-Cat.webp" alt="A Beluga Cat" width="500" height="600n id="education">
+            <h2>Education / Achievements</h2>
+            <p>Currently taking BSCS-SF in Asia Pacific College</p>
+            <p>Experience: Coding Python</p>
+        </section>
+
+        <section id="hobbies">
+            <h2>Hobbies</h2>
+            <p>Cooking, Eating, Sleeping</p>
+        </section>
+
+        <section id="goals">
+            <h2>Goals In Life</h2>
+            <ul>
+                <li>Finish this course</li>
+                <li>To own a Beluga Cat</li>
+            </ul>
+        </section>
+
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <div class="gallery">
+                https://wallpapers.com/images/hd/ice-cream-pictures-93ucnuf5kr7ghmhg.jpg
+                <ttps://pallensmith.com/wp-content/uploads/CookingDemo.jpg
+                https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg
+            </div>
+        </section>
+    </main>
 </div>
 
-<div class="content">
-  <h1>About Me</h1>
-  About Me<br>
- - Hello Everyone!I love CATS<br>
- Education / Achievements<br>
-Currently taking BSCS-SF in ASIA PACIFIC COLLEGE<br>
-Course: BSCS-SF <br>
-Eperience: Coding Python<br>
-Hobbies: Cooking, Eating, Sleeping<br>
-Goals In Life / Dream<br>
- - Finish this course<br>
-</div>  
+<footer>
+    <p>Contact: bpananayo@student.apc.edu.ph | © 2025 Breneth Jian Ananayo</p>
+</footer>
 
-<div class="facts">
-  <h2>Facts:</h2>
-  Hobbies and Interest<br>
-  <ul>
-    <li>I love cooking</li>
-    <li>I also love eating diffent kind of foods</li>
-  </ul>
-Goals In Life / Dream<br>
-</ul>
-    <li>To Finish College And find a job</li>
-  </ul>
-</div>
+<script>
+    // Smooth scrolling for navigation
+    document.querySelectorAll('.navbar a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                               behavior: 'smooth'
+            });
+        });
+    });
+</script>
 
-<div class="footer">
-    Beluga Cat<br>
-<img src="https://www.catster.com/wp-content/uploads/2023/11/Beluga-Cat.webp" alt="Beluga Cat" width="500" height="600">
-  
-</div>
 </body>
-</html>
