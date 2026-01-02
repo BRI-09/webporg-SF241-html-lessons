@@ -1,16 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Profile</title>
-
-    <!-- Styles -->
-    <link rel="stylesheet"s/grid.css
-
-    <!-- Optional: favicon -->
-    <link rel="icon" href="https://cdn2.thecatapi.com/images/MTY3OD
+    <title>Personal Profile | Breneth Jian Ananayo</title>
+    
+    <link rel="stylesheet" href="css/flexbox.css">
+    <link rel="stylesheet" href="css/grid.css">
+</head>
+<body>
 
 <header>
     <h1>Breneth Jian Ananayo</h1>
@@ -18,23 +16,23 @@
 </header>
 
 <nav class="navbar">
-    #aboutAbout</a>
-    <a hrefionEducation</a>
-    <a href="#goals
-    #galleryCat Gallery</a>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#goals">Goals</a>
+    <a href="#gallery">Gallery</a>
 </nav>
 
 <div class="container">
     <aside class="side" id="about">
         <h2>About Me</h2>
         <p>Hello Everyone! I love CATS 🐱</p>
-        https://uploads.dailydot.com/2018/10/olli-the-polite-cat.jpg?q=65&auto=format&w=1200&ar=2:1&fit=crop
+        <img src="https://uploads.dailydot.com/2018/10/olli-the-polite-cat.jpg?q=65&auto=format&w=1200&ar=2:1&fit=crop" alt="A Beluga Cat">
     </aside>
 
     <main class="main">
         <section id="education">
             <h2>Education / Achievements</h2>
-            <p>Currently taking BSCS-SF in Asia Pacific College</p>
+            <p>Currently taking <strong>BSCS-SF</strong> in Asia Pacific College</p>
             <p>Experience: Coding Python</p>
         </section>
 
@@ -51,127 +49,29 @@
             </ul>
         </section>
 
-        <!-- Likes-enabled Gallery -->
+        <hr style="margin: 30px 0; border: 0; border-top: 1px solid #eee;">
+
         <section id="gallery">
             <h2>My Likes Gallery</h2>
-
-            <!-- Toolbar -->
-            <div class="gallery-toolbar">
-                <button class="toolbar-btn active" id="showAllBtn">Show All</button>
-                <button class="toolbar-btn" id="showLikedBtn">Show My Likes</button>
-            </div>
-
-            <div class="gallery" id="galleryGrid">
-                <div class="gallery-item" data-id="dessert" data-src="https://wallpapers.com/images/hd/ice-cream-pictures-93ucnuf5m/images/hd/ice-cream-pictures-93ucnuf5kr7ghmhg.jpg
-                    <button class="like-btn" aria-label="Like image">
-                        <span class="like-heart">❤</span>
-                        <span class="like-count">0</span>
-                    </button>
-                </div>
-
-                https://esmmweighless.com/wp-content/uploads/2019/12/Carolyn-Cooking-Blog.jpg
-                    <img src="https://esmmweighless.com/wp-content/uploads/2019/12/Carolyn-Cooking-Blog.jpg" alt="Cooking as one of my Hobbies aria-label="Like image">
-                        <span class="like-heart">❤</span>
-                        <span class="like-count">0</span>
-                    </button>
-                </div>
-
-                https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg
-                    <img src="https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg"          <button class="like-btn" aria-label="Like image">
-                        <span class="like-heart">❤</span>
-                        <span class="like-count">0</span>
-                    </button>
-                </div>
+            <p>Click the button below to reveal my favorite things!</p>
+            <br>
+            <button class="gallery-btn" id="view-gallery-btn">Show Gallery</button>
+            
+            <div class="gallery" id="gallery-content">
+                <img src="https://wallpapers.com/images/hd/ice-cream-pictures-93ucnuf5kr7ghmhg.jpg" alt="Favorite Dessert">
+                <img src="https://esmmweighless.com/wp-content/uploads/2019/12/Carolyn-Cooking-Blog.jpg" alt="Cooking">
+                <img src="https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg" alt="Cat">
             </div>
         </section>
     </main>
 </div>
 
 <footer>
-    <p>Contact: bpananayo@student.apc.edu.ph | © 2025 Breneth Jian Ananayo</p>
+    <p>Contact: <a href="mailto:bpananayo@student.apc.edu.ph" style="color: #1abc9c;">bpananayo@student.apc.edu.ph</a></p>
+    <p>© 2026 Breneth Jian Ananayo</p>
 </footer>
 
-<script>
-    // Smooth scrolling for navigation
-    document.querySelectorAll('.navbar a').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (!target) return;
-            target.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-
-    // Make "Cat Gallery" show liked only after scroll (optional)
-    const galleryLink = document.querySelector('.navbar a[href="#gallery"]');
-    galleryLink?.addEventListener('click', () => {
-        setTimeout(() => {
-            document.getElementById('showLikedBtn')?.click();
-        }, 400);
-    });
-
-    // --- Likes & Filter Logic ---
-    (function () {
-        const STORAGE_KEY = 'brenethLikes';
-        const galleryGrid = document.getElementById('galleryGrid');
-        const showAllBtn   = document.getElementById('showAllBtn');
-        const showLikedBtn = document.getElementById('showLikedBtn');
-
-        function loadLikes() {
-            try {
-                const raw = localStorage.getItem(STORAGE_KEY);
-                return raw ? JSON.parse(raw) : {};
-            } catch {
-                return {};
-            }
-        }
-
-        function saveLikes(likes) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(likes));
-        }
-
-        function renderLikes(likes) {
-            document.querySelectorAll('.gallery-item').forEach(item => {
-                const id = item.dataset.id;
-                const btn = item.querySelector('.like-btn');
-                const countEl = item.querySelector('.like-count');
-                const count = likes[id] || 0;
-                countEl.textContent = count;
-                btn.classList.toggle('liked', count > 0);
-            });
-        }
-
-        function applyFilter({ likedOnly }, likes) {
-            document.querySelectorAll('.gallery-item').forEach(item => {
-                const id = item.dataset.id;
-                const isLiked = (likes[id] || 0) > 0;
-                item.style.display = likedOnly ? (isLiked ? '' : 'none') : '';
-            });
-
-            showAllBtn.classList.toggle('active', !likedOnly);
-            showLikedBtn.classList.toggle('active', likedOnly);
-        }
-
-        const likes = loadLikes();
-        renderLikes(likes);
-        applyFilter({ likedOnly: false }, likes);
-
-        // Like toggle (0 or 1)
-        galleryGrid.addEventListener('click', (e) => {
-            const btn = e.target.closest('.like-btn');
-            if (!btn) return;
-            const item = btn.closest('.gallery-item');
-            const id = item.dataset.id;
-
-            likes[id] = (likes[id] || 0) > 0 ? 0 : 1;
-            saveLikes(likes);
-            renderLikes(likes);
-        });
-
-        showAllBtn.addEventListener('click', () => applyFilter({ likedOnly: false }, likes));
-        showLikedBtn.addEventListener('click', () => applyFilter({ likedOnly: true }, likes));
-    })();
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
