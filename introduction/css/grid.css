@@ -1,8 +1,10 @@
+
 /* Navigation (Grid) */
 .navbar {
     display: grid;
     grid-auto-flow: column;
     justify-content: center;
+    gap: 4px;
     background-color: #333;
 }
 
@@ -14,17 +16,18 @@
     margin: 20px;
 }
 
-/* Gallery (Grid version) */
+/* The gallery already uses grid in flexbox.css; keep consistent sizing here if needed
+   (You can override values below if you want a different grid behavior in "grid mode") */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 15px;
     margin-top: 20px;
 }
 
-//* Responsive */
+/* Responsive */
 @media screen and (max-width: 768px) {
-  .container {
-       grid-template-columns: 1fr;
-  }
-  
+    .container {
+        grid-template-columns: 1fr;
+    }
+}

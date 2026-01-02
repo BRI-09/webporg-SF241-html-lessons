@@ -1,3 +1,4 @@
+
 /* Reset */
 * {
     box-sizing: border-box;
@@ -27,12 +28,13 @@ header h1 {
 
 header p {
     font-size: 1.2rem;
-} 
+}
 
-/* Navigation */
+/* Navigation (Flexbox) */
 .navbar {
     display: flex;
     justify-content: center;
+    gap: 4px;
     background-color: #333;
 }
 
@@ -47,7 +49,7 @@ header p {
     background-color: #1abc9c;
 }
 
-/* Container */
+/* Container (Flexbox) */
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -84,23 +86,91 @@ header p {
     color: #1abc9c;
 }
 
-/* Gallery */
+/* --- Gallery (base layout) --- */
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    display: grid; /* grid inside flex layout container */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 15px;
     margin-top: 20px;
 }
 
-.gallery img {
+/* Card wrapper for each image */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+    background: #fff;
+}
+
+.gallery-item img {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
     transition: transform 0.3s ease;
 }
 
-.gallery img:hover {
+.gallery-item img:hover {
     transform: scale(1.05);
+}
+
+/* --- Like (heart) button overlay --- */
+.like-btn {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background: rgba(255,255,255,0.95);
+    border: none;
+    border-radius: 999px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font: 600 14px/1 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.like-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.18);
+}
+
+.like-heart {
+    color: #999;
+    font-size: 16px;
+}
+
+.like-btn.liked .like-heart {
+    color: #e24a62; /* active color when liked */
+}
+
+.like-count {
+    color: #333;
+}
+
+/* --- Toolbar above gallery --- */
+.gallery-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0.5rem 0 1rem;
+}
+
+.toolbar-btn {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f7f7f7;
+    cursor: pointer;
+    font: 600 14px/1 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+.toolbar-btn.active {
+    background: #e9f3ff;
+    border-color: #9ec8ff;
 }
 
 /* Footer */
@@ -116,5 +186,8 @@ footer {
 @media screen and (max-width: 768px) {
     .container {
         flex-direction: column;
+    }
+    .side, .main {
+        flex: 100%;
     }
 }

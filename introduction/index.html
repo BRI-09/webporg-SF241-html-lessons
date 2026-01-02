@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="css/flexbox.css">
-    
     <title>Personal Profile</title>
-</head>
-<body>
+
+    <!-- Styles -->
+    <link rel="stylesheet"s/grid.css
+
+    <!-- Optional: favicon -->
+    <link rel="icon" href="https://cdn2.thecatapi.com/images/MTY3OD
 
 <header>
     <h1>Breneth Jian Ananayo</h1>
@@ -17,17 +18,17 @@
 </header>
 
 <nav class="navbar">
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#goals">Goals</a>
-    <a href="#gallery">Cat Gallery</a>
+    #aboutAbout</a>
+    <a hrefionEducation</a>
+    <a href="#goals
+    #galleryCat Gallery</a>
 </nav>
 
 <div class="container">
     <aside class="side" id="about">
         <h2>About Me</h2>
         <p>Hello Everyone! I love CATS 🐱</p>
-        <img src="https://uploads.dailydot.com/2018/10/olli-the-polite-cat.jpg?q=65&auto=format&w=1200&ar=2:1&fit=crop" alt="A Beluga Cat">
+        https://uploads.dailydot.com/2018/10/olli-the-polite-cat.jpg?q=65&auto=format&w=1200&ar=2:1&fit=crop
     </aside>
 
     <main class="main">
@@ -50,16 +51,37 @@
             </ul>
         </section>
 
+        <!-- Likes-enabled Gallery -->
         <section id="gallery">
             <h2>My Likes Gallery</h2>
-            <div class="gallery">
-              <p id="demo">JavaScript can change HTML content.</p>
-              <button type="button" onclick='document.getElementById("demo").innerHTML = "Hello JavaScript!"'>Click Me!</button>
-              <script src="js/myScript.js"></script>
 
-                <img src="https://wallpapers.com/images/hd/ice-cream-pictures-93ucnuf5kr7ghmhg.jpg" alt="Favorite Dessert">
-                <img src="https://esmmweighless.com/wp-content/uploads/2019/12/Carolyn-Cooking-Blog.jpg" alt="Cooking as one of my Hobbies">
-                <img src="https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg" alt="Cat">
+            <!-- Toolbar -->
+            <div class="gallery-toolbar">
+                <button class="toolbar-btn active" id="showAllBtn">Show All</button>
+                <button class="toolbar-btn" id="showLikedBtn">Show My Likes</button>
+            </div>
+
+            <div class="gallery" id="galleryGrid">
+                <div class="gallery-item" data-id="dessert" data-src="https://wallpapers.com/images/hd/ice-cream-pictures-93ucnuf5m/images/hd/ice-cream-pictures-93ucnuf5kr7ghmhg.jpg
+                    <button class="like-btn" aria-label="Like image">
+                        <span class="like-heart">❤</span>
+                        <span class="like-count">0</span>
+                    </button>
+                </div>
+
+                https://esmmweighless.com/wp-content/uploads/2019/12/Carolyn-Cooking-Blog.jpg
+                    <img src="https://esmmweighless.com/wp-content/uploads/2019/12/Carolyn-Cooking-Blog.jpg" alt="Cooking as one of my Hobbies aria-label="Like image">
+                        <span class="like-heart">❤</span>
+                        <span class="like-count">0</span>
+                    </button>
+                </div>
+
+                https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg
+                    <img src="https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg"          <button class="like-btn" aria-label="Like image">
+                        <span class="like-heart">❤</span>
+                        <span class="like-count">0</span>
+                    </button>
+                </div>
             </div>
         </section>
     </main>
@@ -74,14 +96,82 @@
     document.querySelectorAll('.navbar a').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+            const target = document.querySelector(this.getAttribute('href'));
+            if (!target) return;
+            target.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // Make "Cat Gallery" show liked only after scroll (optional)
+    const galleryLink = document.querySelector('.navbar a[href="#gallery"]');
+    galleryLink?.addEventListener('click', () => {
+        setTimeout(() => {
+            document.getElementById('showLikedBtn')?.click();
+        }, 400);
+    });
+
+    // --- Likes & Filter Logic ---
+    (function () {
+        const STORAGE_KEY = 'brenethLikes';
+        const galleryGrid = document.getElementById('galleryGrid');
+        const showAllBtn   = document.getElementById('showAllBtn');
+        const showLikedBtn = document.getElementById('showLikedBtn');
+
+        function loadLikes() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                return raw ? JSON.parse(raw) : {};
+            } catch {
+                return {};
+            }
+        }
+
+        function saveLikes(likes) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(likes));
+        }
+
+        function renderLikes(likes) {
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                const id = item.dataset.id;
+                const btn = item.querySelector('.like-btn');
+                const countEl = item.querySelector('.like-count');
+                const count = likes[id] || 0;
+                countEl.textContent = count;
+                btn.classList.toggle('liked', count > 0);
             });
-        }); 
-    }); 
+        }
+
+        function applyFilter({ likedOnly }, likes) {
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                const id = item.dataset.id;
+                const isLiked = (likes[id] || 0) > 0;
+                item.style.display = likedOnly ? (isLiked ? '' : 'none') : '';
+            });
+
+            showAllBtn.classList.toggle('active', !likedOnly);
+            showLikedBtn.classList.toggle('active', likedOnly);
+        }
+
+        const likes = loadLikes();
+        renderLikes(likes);
+        applyFilter({ likedOnly: false }, likes);
+
+        // Like toggle (0 or 1)
+        galleryGrid.addEventListener('click', (e) => {
+            const btn = e.target.closest('.like-btn');
+            if (!btn) return;
+            const item = btn.closest('.gallery-item');
+            const id = item.dataset.id;
+
+            likes[id] = (likes[id] || 0) > 0 ? 0 : 1;
+            saveLikes(likes);
+            renderLikes(likes);
+        });
+
+        showAllBtn.addEventListener('click', () => applyFilter({ likedOnly: false }, likes));
+        showLikedBtn.addEventListener('click', () => applyFilter({ likedOnly: true }, likes));
+    })();
 </script>
-
-
 
 </body>
 </html>
