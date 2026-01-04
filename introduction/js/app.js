@@ -1,15 +1,38 @@
 
 // introduction/js/app.js
 document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('toggleGalleryBtn');
-  const gallery = document.getElementById('galleryContainer');
+  const toggleBtn = document.getElementById('toggleGalleryBtn');
+  const gallery   = document.getElementById('gallery');
+  const status    = document.getElementById('galleryStatus');
 
-  if (!btn || !gallery) return;
+  if (!toggleBtn || !gallery) return;
 
-  btn.addEventListener('click', () => {
-    const isHidden = gallery.style.display === '' || gallery.style.display === 'none';
-    gallery.style.display = isHidden ? 'block' : 'none';
-    btn.textContent = isHidden ? 'Hide Gallery' : 'Show Gallery';
+  const isHidden = () => gallery.hasAttribute('hidden');
+
+  const show = () => {
+    gallery.removeAttribute('hidden');
+    toggleBtn.textContent = 'Hide Gallery';
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    if (status) status.textContent = '(visible)';
+  };
+
+  const hide = () => {
+    gallery.setAttribute('hidden', '');
+    toggleBtn.textContent = 'Show Gallery';
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    if (status) status.textContent = '(hidden)';
+  };
+
+  // Button click toggles grid visibility
+  toggleBtn.addEventListener('click', () => {
+    isHidden() ? show() : hide();
+  });
+
+  // Optional: keyboard shortcut "g" to toggle
+  document.addEventListener('keydown', (e) => {
+    if (e.key.toLowerCase() === 'g') {
+      isHidden() ? show() : hide();
+    }
   });
 });
 ``
