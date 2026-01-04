@@ -36,3 +36,8 @@
          grid-template-columns: 1fr;
     }
 }
+
+/* Hide the gallery by default */
+#gallery-content {
+    display: none;
+}
