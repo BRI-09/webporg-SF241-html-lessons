@@ -1,0 +1,79 @@
+
+:root {
+  --bs-primary: #6f42c1;
+  --bs-primary-rgb: 111, 66, 193;
+  --bs-dark: #3b2066;
+  --bs-dark-rgb: 59, 32, 102;
+  --bs-body-bg: #f5efff;
+  --bs-body-color: #1f1433;
+}
+
+body {
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+h1 {
+  color: var(--bs-primary);
+  font-weight: 700;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+.col-md { padding: 1rem; }
+.nav-link.active {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* ===== Lightbox Styles ===== */
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 1050;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+.lightbox-content {
+  position: relative;
+  max-width: min(90vw, 1200px);
+  max-height: 90vh;
+  width: 100%;
+}
+.lightbox-image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: .5rem;
+  box-shadow: 0 0.5rem 2rem rgba(0,0,0,0.5);
+}
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.9;
+  font-size: 1.5rem;
+  line-height: 1;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 .25rem 1rem rgba(0,0,0,0.25);
+}
+.lightbox-close {
+  top: 1rem;
+  right: 1rem;
+  transform: none;
+  font-size: 1rem;
+}
+.lightbox-prev { left: 1rem; }
+.lightbox-next { right: 1rem; }
+.lightbox-prev:hover,
+.lightbox-next:hover,
+.lightbox-close:hover { opacity: 1; }
