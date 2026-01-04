@@ -89,7 +89,7 @@ header p {
 
 .main h2 {
     margin-bottom: 10px;
-    color: #a967ec;
+    color: #763db0;
 }
 
 /* Gallery (CSS Grid) */
@@ -116,7 +116,7 @@ footer {
     text-align: center;
     padding: 20px;
     background: #333;
-    color: white;
+    color: #ddccef;
     margin-top: 30px;
 }
 
