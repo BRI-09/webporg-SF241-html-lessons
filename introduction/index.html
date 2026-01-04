@@ -1,94 +1,77 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Breneth | Introduction</title>
-
- <link rel="stylesheet" href="/css/styles.css">
- 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Profile | Breneth Jian Ananayo</title>
+    
+    <link rel="stylesheet" href="css/flexbox.css">
+    <link rel="stylesheet" href="css/grid.css">
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <h1>Personal Profile Web Page - Breneth Ananayo</h1>
-    <p>BSCS-SF • Asia Pacific College</p>
-  </header>
+<header>
+    <h1>Breneth Jian Ananayo</h1>
+    <p>Welcome to my personal profile page!</p>
+</header>
 
-  <!-- Navigation (Flexbox) -->
-  <nav class="navbar" aria-label="Main navigation">
-    #aboutAbout</a>
-    #courseCourse</a>
-    #experienceExperience</a>
-    #hobbiesHobbies</a>
-    #goalsGoals</a>
+<nav class="navbar">
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#goals">Goals</a>
+    <a href="#gallery">Gallery</a>
+</nav>
 
-    <!-- Gallery toggle button -->
-    <button id="toggleGalleryBtn" aria-controls="gallery" aria-expanded="false">
-      Show Gallery
-    </button>
-  </nav>
+<div class="container">
+    <aside class="side" id="about">
+        <h2>About Me</h2>
+        <p>Hello Everyone! I love CATS 🐱</p>
+        <img src="https://uploads.dailydot.com/2018/10/olli-the-polite-cat.jpg?q=65&auto=format&w=1200&ar=2:1&fit=crop" alt="A Beluga Cat">
+    </aside>
 
-  <!-- Main container (Flexbox: sidebar + main) -->
-  <section class="container">
-    <!-- Sidebar -->
-    <aside class="side">
-      <h2 id="about">About Me</h2>
-      <p>• Hello Everyone!<br>• I love CATS</p>
-
-      <img src="https://scontent.fmnl8-2.fna.fbcdn.net/v/t39.30808-6/501796353_2448292142203340_8204438585368915182_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFMRJfjvvOtAXLU_SfzJBKeXSWGNInxde9dJYY0ifF17xlJn3yx3ZW-a7ajntaGcFo3ytwMl58BlyTtUkNhhstz&_nc_ohc=jtwZz6LrxwUQ7kNvwHN6iPt&_nc_oc=AdlioMyFII2PEIq8X3pjzowiHVXxsjEu99qDP50HYqeLoCUsATxYhoEBBF0p-dUhUjU&_nc_zt=23&_nc_ht=scontent.fmnl8-2.fna&_nc_gid=rGA4OnUCj4FdhBMwG5-2bg&oh=00_AflLbDQEsbGvaGsC-SCrtsw1z1sGz8pnKDBcM2DSLo-HvQ&oe=693DF7Bide>
-
-    <!-- Main content -->
     <main class="main">
-      <section id="course">
-        <h2>Course</h2>
-        <p>• BSCS-SF</p>
-      </section>
+        <section id="education">
+            <h2>Education / Achievements</h2>
+            <p>Currently taking <strong>BSCS-SF</strong> in Asia Pacific College</p>
+            <p>Experience: Coding Python</p>
+        </section>
 
-      <section id="experience" style="margin-top: 16px">
-        <h2>Experience</h2>
-        <p>• Coding Python</p>
-      </section>
+        <section id="hobbies">
+            <h2>Hobbies</h2>
+            <p>Cooking, Eating, Sleeping</p>
+        </section>
 
-      <section id="hobbies" style="margin-top: 16px">
-        <h2>Hobbies</h2>
-        <p>• Cooking, Eating, Sleeping</p>
-      </section>
+        <section id="goals">
+            <h2>Goals In Life</h2>
+            <ul>
+                <li>Finish this course</li>
+                <li>To own a cat just like Beluga</li>
+            </ul>
+        </section>
 
-      <section id="goals" style="margin-top: 16px">
-        <h2>Goals In Life / Dream</h2>
-        <p>
-          • Finish this course<br>
-          • To have an inspired cottage house and a garden in the province<br>
-          • To own a cat like Beluga or A Fat Cat
-        </p>
-      </section>
+        <hr style="margin: 30px 0; border: 0; border-top: 1px solid #eee;">
 
-      <!-- Gallery (Grid) -->
-      <section id="gallerySection" style="margin-top: 24px">
-        <h2 style="display:flex;align-items:center;gap:8px">
-          Gallery
-          <small id="galleryStatus" style="color:#888;font-size:.9rem">(hidden)</small>
-        </h2>
-
-        <div id="gallery" class="gallery" hidden>
-          <!-- Paths are relative to introduction/index.html -->
-          ./images/IMG_20240427_145704_295.jpg
-          ./images/IMG_20241216_183226.jpg
-          <img src="https://www.catster.com/wp-content/uploads/2023-Cat.webp
-        </div>
-      </section>
+        <section id="gallery">
+            <h2>My Likes Gallery</h2>
+            <p>Click the button below to reveal my favorite things!</p>
+            <br>
+            <button class="gallery-btn" id="view-gallery-btn">Show Gallery</button>
+            
+            <div class="gallery" id="gallery-content">
+                <img src="https://wallpapers.com/images/hd/ice-cream-pictures-93ucnuf5kr7ghmhg.jpg" alt="Favorite Dessert">
+                <img src="https://esmmweighless.com/wp-content/uploads/2019/12/Carolyn-Cooking-Blog.jpg" alt="Cooking">
+                <img src="https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg" alt="Cat">
+            </div>
+        </section>
     </main>
-  </section>
+</div>
 
-  <!-- Footer -->
-  <footer>
-    © 2026 Breneth Ananayo
-  </footer>
+<footer>
+    <p>Contact: <a href="mailto:bpananayo@student.apc.edu.ph" style="color: #1abc9c;">bpananayo@student.apc.edu.ph</a></p>
+    <p>© 2026 Breneth Jian Ananayo</p>
+</footer>
 
-  <!-- JS -->
-  ./js/app.js</script>
+<script src="script.js"></script>
+
 </body>
 </html>
