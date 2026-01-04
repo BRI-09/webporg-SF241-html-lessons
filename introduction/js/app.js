@@ -12,3 +12,4 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.textContent = isHidden ? 'Hide Gallery' : 'Show Gallery';
   });
 });
+``
