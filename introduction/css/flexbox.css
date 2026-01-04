@@ -15,7 +15,7 @@ body {
 
 /* Header */
 header {
-    background: linear-gradient(135deg, #1abc9c, #16a085);
+    background: linear-gradient(135deg, #6a3c99, #663399);
     color: white;
     text-align: center;
     padding: 50px 20px;
@@ -52,7 +52,7 @@ header p {
 
 .navbar a:hover,
 .navbar button:hover {
-    background-color: #1abc9c;
+    background-color: #7a559f;
 }
 
 /* Container (Flexbox layout) */
@@ -66,7 +66,7 @@ header p {
 /* Sidebar */
 .side {
     flex: 35%;
-    background-color: #fff;
+    background-color: #ddccef;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -84,12 +84,12 @@ header p {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(229, 211, 239, 0.1);
 }
 
 .main h2 {
     margin-bottom: 10px;
-    color: #1abc9c;
+    color: #a967ec;
 }
 
 /* Gallery (CSS Grid) */
