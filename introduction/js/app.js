@@ -13,9 +13,7 @@
         <h1 class="text-center">Personal Profile Web Page - Breneth Ananayo</h1>
 
         <img class="d-block mx-auto"
-             src="https://scontent.fmnl8-2.fna.fbcdn.net/v/t39.30808-6/501796353_2448292142203340_8204438585368915182_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFMRJfjvvOtAXLU_SfzJBKeXSWGNInxde9dJYY0ifF17xlhc=jtwZz6LrxwUQ7kNvwHN6iPt&_nc_oc=AdlioMyFII2PEIq8X3pjzowiHVXxsjEu99qDP50HYqeLoCUsATxYhoEBBF0p-dUhUjU&_nc_zt=23&_nc_ht=scontent.fmnl8-2.fna&_nc_gid=rGA4OnUCj4FdhBMwG5-2bg&oh=00_AflLbDQEsbGvaGsC-SCrtsw1z1sGz8pnKDBcM2DSLo-HvQ&oe=693DF7B7
-
-        <div class="container-fluid mt-3">
+             src="https://scontent.fmnl8-2.fna.fbcdn.net/v/t39.30808-6/501796353_2448292142203340_8204438585368915182_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFMRJfjvvOtAXLU_SfzJBKeXSWGNInxde9dJYY0ifF17xlJn3yx3ZW-a7ajntaGcFo3ytwMl58BlyTtUkNhhstz&_nc_ohc=jtwZz6LrxwUQ7kNvwHN6iPt&_nc_oc=AdlioMyFII2PEIq8X3pjzowiHVXxsjEu99qDP50HYqeLoCUsATxYhoEBBF0p-dUhUjU&_nc_zt=23&_nc_ht=scontent.fmnl8-2.fna&_nc_gid=rGA4OnUCj4FdhBMwG5-2bg&oh=00_AflLbDQEsbGvaGsC-SCrtsw1z1sGz8pnKDBcM2DSLo-HvQ&d mt-3">
           <div class="row g-3">
             <div class="col-md bg-primary text-white">
               <strong>About Me</strong><br />
@@ -78,9 +76,7 @@
       return {
         images: [
           { src: "https://www.catster.com/wp-content/uploads/2023/11/Beluga-Cat.webp", alt: "Beluga Cat" },
-          { src: "IMG_20240427_145704_295.jpg", alt: "Sunset pic by me" },
-          { src: "IMG_20241216_183225_345.jpg", alt: "Sunset pic by me" },
-          // { src: "./assets/another.jpg", alt: "Another shot" }
+          { src: "./assets/1728552355829.jpg", alt: "Sunset pic by me" },
         ],
         showLightbox: false,
         currentIndex: 0
@@ -128,8 +124,7 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           <div class="col" v-for="(img, idx) in images" :key="idx">
             <div class="card shadow-sm h-100">
-              img.src
-              <div class="card-body">
+              <img :src="img.src"   <div class="card-body">
                 <p class="card-text mb-0">{{ img.alt }}</p>
               </div>
             </div>
@@ -172,4 +167,3 @@
   app.use(router);
   app.mount("#app");
 })();
-``
